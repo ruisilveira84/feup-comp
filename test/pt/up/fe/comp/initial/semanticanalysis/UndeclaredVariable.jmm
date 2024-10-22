@@ -1,0 +1,8 @@
+class UndeclaredVariable {
+
+    public int foo(int a) {
+        return a + b;
+    }
+
+
+}

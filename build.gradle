@@ -1,0 +1,74 @@
+plugins {
+    // For runnable JARs
+    id 'application'
+    id 'distribution'
+}
+
+// Java project
+apply plugin: 'java'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+
+// ANTLR support
+apply plugin: 'antlr'
+
+// Repositories providers
+repositories {
+    mavenCentral()
+}
+
+tasks.withType(Tar) {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+tasks.withType(Zip) {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+installDist {
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+}
+
+dependencies {
+    implementation "junit:junit:4.11"
+    implementation group: 'com.google.code.gson', name: 'gson', version: '2.10'
+    antlr "org.antlr:antlr4:4.5.3"
+    // https://mvnrepository.com/artifact/org.fusesource.jansi/jansi
+    implementation 'org.fusesource.jansi:jansi:2.4.0'
+
+}
+
+
+// Project sources
+sourceSets {
+    main {
+        java {
+            srcDir 'src/main'
+        }
+    }
+
+    test {
+        java {
+            srcDir 'test'
+            srcDir 'test-private'
+        }
+
+        resources {
+            srcDir 'test'
+            srcDir 'test-private'
+        }
+    }
+}
+
+application {
+    mainClass = 'pt.up.fe.comp2024.Launcher'
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+}

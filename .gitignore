@@ -1,0 +1,17 @@
+/bin/
+.gradle/
+.idea/
+/build/
+/.settings/
+/generated/
+/run/
+gradle*
+
+# Class files
+**/*.class
+!libs-jmm/**/*.class
+
+# debug files
+output.ollir
+output.jasmin
+output.j

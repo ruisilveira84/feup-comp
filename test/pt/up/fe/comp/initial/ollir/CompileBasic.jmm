@@ -1,0 +1,14 @@
+class CompileBasic {
+
+
+    public int methodOne(int a) {
+        int intLocal;
+
+        return 0;
+    }
+
+    public int methodTwo(int intParam) {
+        return intParam;
+    }
+
+}

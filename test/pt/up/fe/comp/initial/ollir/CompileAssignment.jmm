@@ -1,0 +1,12 @@
+class CompileAssignment {
+
+    public int foo(int a) {
+        int b;
+
+        b = 2;
+
+        a = b;
+
+        return b;
+    }
+}
